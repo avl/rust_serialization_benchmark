@@ -10,7 +10,7 @@ where
 
     group.bench_function("serialize", |b| {
         b.iter(|| {
-            buffer.encode(black_box(&data)).unwrap();
+            black_box(buffer.encode(black_box(&data)).unwrap());
             black_box(());
         })
     });

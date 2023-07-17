@@ -8,7 +8,7 @@ where
 {
     let mut group = c.benchmark_group(format!("{}/savefile", name));
 
-    let mut serialize_buffer = Vec::new();
+    let mut serialize_buffer = Vec::with_capacity(10_000_000);
     group.bench_function("serialize", |b| {
         b.iter(|| {
             serialize_buffer.clear();
